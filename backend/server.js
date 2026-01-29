@@ -294,4 +294,9 @@ app.get('/api/reports', async (req, res) => {
 
 // --- JALANKAN SERVER ---
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`🚀 Server Backend "Rumah Rasa" berjalan di port ${PORT}`));
+if (process.env.NODE_ENV !== 'production') {
+    const PORT = process.env.PORT || 5000;
+    app.listen(PORT, () => console.log(`Jalan di port ${PORT}`));
+}
+
+module.exports = app; 
